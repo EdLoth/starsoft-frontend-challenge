@@ -1,54 +1,62 @@
 import styled from 'styled-components';
 
 export const Card = styled.article`
-  background: ${({ theme }) => theme.colors.surface}; 
-  border-radius: ${({ theme }) => theme.border.radius}; 
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.border.radius};
   padding: 1.5rem;
+  width: 100%;
+  max-width: 345px;
+  height: 555px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: transform 0.2s;
   border: 1px solid transparent;
+  transition: all 0.2s;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: ${({ theme }) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.border};
   }
 `;
 
 export const ImageContainer = styled.div`
   width: 100%;
-  height: 200px;
+  height: 258px;
   background: #111;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 10px;
+    padding: 1rem;
   }
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex: 1;
 
   h3 {
-    font-size: 1.1rem;
-    color: ${({ theme }) => theme.colors.text};
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #CCCCCC;
+    line-height: 1.4;
   }
 
   p {
-    font-size: 0.875rem;
-    color: ${({ theme }) => theme.colors.textSecondary};
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #FFFFFF;
+    line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4; 
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -56,33 +64,20 @@ export const Info = styled.div`
 
 export const PriceRow = styled.div`
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 1rem;
   margin-top: auto;
-  
-  span {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary};
-  }
 `;
 
+export const PriceValue = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-export const BuyButton = styled.button`
-  width: 100%;
-  background: ${({ theme }) => theme.colors.secondary};
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  border-radius: ${({ theme }) => theme.border.radius};
-  cursor: pointer;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  transition: all 0.2s;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary};
-    color: white;
+  span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F0F0F0;
+    text-transform: uppercase;
   }
 `;

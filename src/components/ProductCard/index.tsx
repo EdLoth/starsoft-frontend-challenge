@@ -1,4 +1,9 @@
+import { useSelector } from 'react-redux';
+import Image from 'next/image';
+import { RootState } from '@/store';
 import { Product } from '@/types/api';
+import { BuyButton } from '@/components/BuyButton';
+import { formatPrice } from '@/utils/format';
 import * as S from './styles';
 
 interface ProductCardProps {
@@ -7,27 +12,47 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
-  const formattedPrice = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(Number(product.price));
+  const isInCart = useSelector((state: RootState) => 
+    state.cart.items.some(item => item.id === product.id)
+  );
 
   return (
     <S.Card>
       <S.ImageContainer>
-        <img src={product.image} alt={product.name} loading="lazy" />
+        <Image 
+          src={product.image} 
+          alt={product.name} 
+          width={200} 
+          height={200} 
+          loading="lazy"
+        />
       </S.ImageContainer>
-      
+
       <S.Info>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
       </S.Info>
-
+      
       <S.PriceRow>
-        <span>{formattedPrice}</span>
-        <button onClick={() => onAddToCart(product)}>
-          Comprar
-        </button>
+        <S.PriceValue>
+          <Image 
+            src="/assets/icon-money.svg" 
+            alt="ETH" 
+            width={29} 
+            height={29} 
+            style={{ 
+              maxWidth: '29px', 
+              maxHeight: '29px',
+              objectFit: 'contain' 
+            }}
+          />
+          <span>{formatPrice(Number(product.price))} ETH</span>
+        </S.PriceValue>
+        
+        <BuyButton 
+          isInCart={isInCart} 
+          onClick={() => onAddToCart(product)} 
+        />
       </S.PriceRow>
     </S.Card>
   );
