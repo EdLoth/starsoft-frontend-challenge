@@ -4,29 +4,32 @@ import { RootState } from '@/store';
 import * as S from './styles';
 
 export function Header() {
-  const cartItems = useSelector((state: RootState) => state.cart.items);
-  const itemCount = cartItems.length;
+  const cartSize = useSelector((state: RootState) => state.cart.items.length);
 
   return (
     <S.Container>
-      <Image 
-        src="/assets/logo.svg" 
-        alt="Starsoft" 
-        width={101} 
-        height={38} 
-        priority 
-      />
-
-      <S.CartButton aria-label="Carrinho de compras">
+      <S.LogoContainer href="/">
         <Image 
-          src="/assets/bag.svg"
+          src="/assets/logo.svg" 
+          alt="Starsoft" 
+          width={140} 
+          height={40} 
+          priority 
+        />
+      </S.LogoContainer>
+
+      <S.CartContainer>
+        <Image 
+          src="/assets/bag.svg" 
           alt="Carrinho" 
-          width={24} 
-          height={24} 
+          width={29} 
+          height={29} 
         />
         
-        {itemCount > 0 && <S.Badge>{itemCount}</S.Badge>}
-      </S.CartButton>
+        <S.CartCount>
+           <span>{cartSize}</span>
+        </S.CartCount>
+      </S.CartContainer>
     </S.Container>
   );
 }

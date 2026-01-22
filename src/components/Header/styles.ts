@@ -1,49 +1,55 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Link from 'next/link';
 
 export const Container = styled.header`
-  background-color: ${({ theme }) => theme.colors.surface};
-  height: 80px;
+  width: 100%;
+  height: 100px;
+  background: ${({ theme }) => theme.colors.surface};
+  
+  max-width: 1920px;
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.21);
+  padding: 0 4.6875rem 0 2.875rem;
 
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-`;
-
-export const CartButton = styled.button`
-  background: transparent;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    filter: brightness(0) invert(1);
+  @media (max-width: 1024px) {
+    padding: 0 2rem;
+    height: 80px;
   }
 `;
 
-export const Badge = styled.span`
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
-  height: 20px;
-  min-width: 20px;
-  border-radius: 10px;
+export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 4px;
+  cursor: pointer;
+  
+  img {
+    height: auto;
+  }
+`;
+
+export const CartContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const CartCount = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+  span {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    font-weight: 600;
+  }
 `;
