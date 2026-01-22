@@ -1,32 +1,34 @@
 import styled from 'styled-components';
 
 export const Card = styled.article`
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: ${({ theme }) => theme.colors.surface}; 
+  border-radius: ${({ theme }) => theme.border.radius}; 
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   transition: transform 0.2s;
+  border: 1px solid transparent;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const ImageContainer = styled.div`
   width: 100%;
   height: 200px;
-  background: #f0f0f0;
+  background: #111;
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
   
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 10px;
   }
 `;
 
@@ -43,8 +45,8 @@ export const Info = styled.div`
   }
 
   p {
-    font-size: 0.9rem;
-    color: ${({ theme }) => theme.colors.secondary};
+    font-size: 0.875rem;
+    color: ${({ theme }) => theme.colors.textSecondary};
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -54,27 +56,33 @@ export const Info = styled.div`
 
 export const PriceRow = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; 
+  gap: 1rem;
   margin-top: auto;
   
   span {
+    font-size: 1.25rem;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primary};
   }
+`;
 
-  button {
+
+export const BuyButton = styled.button`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.secondary};
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: ${({ theme }) => theme.border.radius};
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+
+  &:hover {
     background: ${({ theme }) => theme.colors.primary};
     color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.9;
-    }
   }
 `;

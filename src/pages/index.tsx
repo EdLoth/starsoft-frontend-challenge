@@ -9,7 +9,7 @@ import { Product } from '@/types/api';
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.surface};
 `;
 
 const Main = styled.main`
