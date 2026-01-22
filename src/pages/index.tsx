@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 
-// Testando se o theme está funcionando (acessando theme.colors.primary)
 const Container = styled.main`
   display: flex;
   flex-direction: column;
