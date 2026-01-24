@@ -57,6 +57,8 @@ Acesse em: `http://localhost:3000`.
 1. Instale as dependências:
 ```bash
 npm install
+&
+npm run dev
 
 # Executar todos os testes
 npm test
@@ -77,6 +79,11 @@ O projeto utiliza o padrão de **Conventional Commits** para um histórico limpo
 * **refactor**: Melhorias de código e migração para Zod.
 
 ---
+
+## 🔗 Deploy
+
+O projeto pode ser visualizado online através do link:
+[👉 NFT Marketplace - Live Demo](https://starsoft-frontend-challenge-omega.vercel.app/)
 
 **Candidato:** [Eduardo Ramos](https://www.linkedin.com/in/dev-edloth/)  
 **Projeto:** Marketplace de NFTs (Starsoft Front-end Challenge)
