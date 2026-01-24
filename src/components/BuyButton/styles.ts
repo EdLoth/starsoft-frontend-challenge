@@ -12,7 +12,6 @@ export const Container = styled.button<ContainerProps>`
   border-radius: 8px;
   cursor: pointer;
   
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   text-transform: uppercase;
@@ -23,18 +22,23 @@ export const Container = styled.button<ContainerProps>`
 
   background-color: ${({ $isInCart }) => ($isInCart ? '#393939' : '#FF8310')};
 
-  &:hover {
+  &:hover:not(:disabled) {
     filter: brightness(1.1);
     transform: translateY(-2px);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(0);
   }
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
     opacity: 1;
+    
+    &:hover {
+      filter: none;
+      transform: none;
+    }
   }
 
   @media (max-width: 768px) {

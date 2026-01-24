@@ -7,12 +7,17 @@ interface BuyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function BuyButton({ isInCart, onClick, ...props }: BuyButtonProps) {
+  const buttonTitle = isInCart 
+    ? 'Este produto já está no seu carrinho' 
+    : 'Adicionar este produto ao carrinho';
+
   return (
     <S.Container 
       type="button"
       onClick={onClick}
       $isInCart={isInCart}
-      disabled={isInCart} // Impede clicar novamente se já está no carrinho
+      disabled={isInCart}
+      title={buttonTitle}  
       {...props}
     >
       {isInCart ? 'ADICIONADO AO CARRINHO' : 'COMPRAR'}
