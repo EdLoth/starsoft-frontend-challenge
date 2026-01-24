@@ -27,7 +27,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-            {/* Futuramente colocaremos as fontes do Google Fonts aqui */}
         </Head>
         <body>
           <Main />
