@@ -2,26 +2,47 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column; /* Empilha a barra e o botão */
+  align-items: center;    /* Centraliza os itens */
   justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 9rem;
+  margin-bottom: 9rem;
   width: 100%;
 `;
 
-const Button = styled.button<{ $progress: number }>`
-  background-color: ${({ theme }) => theme.colors.surface};
+const ProgressTrack = styled.div`
+  width: 100%;
+  max-width: 403px;
+  height: 10px;
+  background-color: #2A2A2A;
+  border-radius: 8px;
+  margin-bottom: 11px;
+  overflow: hidden;
+`;
+
+
+const ProgressBar = styled.div<{ $progress: number }>`
+  height: 100%;
+  width: ${({ $progress }) => $progress}%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 8px;
+  transition: width 0.4s ease-in-out;
+`;
+
+const Button = styled.button`
+  background-color: #393939;
   color: ${({ theme }) => theme.colors.text};
   border: none;
-  padding: 1.25rem 2rem;
+  padding: 2rem;
+  
   width: 100%;
-  max-width: 380px;
+  max-width: 403px; 
+  
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
   text-transform: uppercase;
-  font-size: 0.875rem;
+  font-size: 1.3rem;
   letter-spacing: 1px;
   transition: all 0.2s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -37,17 +58,6 @@ const Button = styled.button<{ $progress: number }>`
     opacity: 0.7;
     transform: none;
   }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background-color: ${({ theme }) => theme.colors.primary};
-    width: ${({ $progress }) => $progress}%;
-    transition: width 0.4s ease-in-out;
-  }
 `;
 
 interface LoadMoreProps {
@@ -55,18 +65,23 @@ interface LoadMoreProps {
   isLoading: boolean;
   currentCount: number;
   totalCount: number;
+  ariaLabel?: string;
 }
 
-export function LoadMore({ onClick, isLoading, currentCount, totalCount }: LoadMoreProps) {
+export function LoadMore({ onClick, isLoading, currentCount, totalCount, ariaLabel }: LoadMoreProps) {
   const progress = totalCount > 0 ? Math.min((currentCount / totalCount) * 100, 100) : 0;
   const isFinished = currentCount >= totalCount;
 
   return (
     <Container>
+      <ProgressTrack>
+        <ProgressBar $progress={progress} role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} />
+      </ProgressTrack>
+
       <Button 
         onClick={onClick} 
         disabled={isLoading || isFinished}
-        $progress={progress}
+        aria-label={ariaLabel || "Carregar mais produtos"}
       >
         {isLoading 
           ? 'Carregando...' 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as S from './styles';
 
-// Ícone de seta para cima (SVG inline)
+
 const ArrowUpIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M18 15l-6-6-6 6"/>
@@ -12,7 +12,7 @@ const ArrowUpIcon = () => (
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Monitora o scroll
+
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 500) {
