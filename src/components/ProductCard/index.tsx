@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import { RootState } from '@/store';
-import { Product } from '@/types/api';
 import { BuyButton } from '@/components/BuyButton';
 import { formatPrice } from '@/utils/format';
 import * as S from './styles';
+import { Product } from '@/services/api';
 
 interface ProductCardProps {
   product: Product;
@@ -36,7 +36,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
       <S.PriceRow>
         <S.PriceValue>
           <Image 
-            src="/assets/icon-money.svg" 
+            src="/assets/money.png" 
             alt="ETH" 
             width={29} 
             height={29} 

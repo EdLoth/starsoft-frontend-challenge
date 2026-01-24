@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.article`
-  background: ${({ theme }) => theme.colors.surface};
+  background: ${({ theme }) => theme.colors.background};
   border-radius: ${({ theme }) => theme.border.radius};
   padding: 1.5rem;
   width: 100%;
@@ -21,7 +21,7 @@ export const Card = styled.article`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 258px;
-  background: #111;
+  background: #22232C;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
