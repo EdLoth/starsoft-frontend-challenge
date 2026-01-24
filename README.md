@@ -71,12 +71,14 @@ npm run lint
 ```
 ## 📂 Padrão de Commits
 
-O projeto utiliza o padrão de **Conventional Commits** para um histórico limpo e organizado:
+O projeto foi desenvolvido seguindo rigorosamente o padrão de **Conventional Commits** para garantir um histórico de alterações semântico e organizado:
 
-* **feat**: Novas funcionalidades ou componentes.
-* **fix**: Correção de erros ou warnings de performance.
-* **test**: Adição de testes unitários.
-* **refactor**: Melhorias de código e migração para Zod.
+* **feat**: Implementação de novas funcionalidades, componentes de UI e lógica de negócio.
+* **fix**: Correções de bugs, ajustes de acessibilidade e compatibilidade de ambiente (Docker/Node).
+* **refactor**: Migração para ferramentas mais robustas, como validação de esquemas com Zod.
+* **test**: Adição de testes unitários e de integração com Jest e RTL.
+* **docs/chore**: Manutenção de documentação (README) e configurações de ambiente/dependências.
+* **style/asset**: Ajustes visuais, temas (Styled Components) e otimização de ativos.
 
 ---
 
