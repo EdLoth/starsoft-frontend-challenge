@@ -1,6 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getProducts } from '@/services/api';
-import { ProductParams, ProductsResponse } from '@/types/api';
+import { getProducts, ProductParams, ProductsResponse } from '@/services/api';
 
 export function useProducts(params: ProductParams) {
   return useInfiniteQuery<ProductsResponse>({
