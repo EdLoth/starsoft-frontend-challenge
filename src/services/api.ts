@@ -37,7 +37,7 @@ export const api = axios.create({
 });
 
 export const getProducts = async (params: ProductParams): Promise<ProductsResponse> => {
-  const { data } = await api.get('/products', {
+  const { data } = await api.get('/', {
     params: {
       page: params.page || 1,
       rows: params.rows || 10,
